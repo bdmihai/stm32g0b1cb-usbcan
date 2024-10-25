@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "./source/cmsis/core/**",
+                "./source/cmsis/device/**",
+                "./source/freertos/**",
+                "/usr/lib/gcc/arm-none-eabi/14.1.0/include/**",
+                "/usr/lib/gcc/arm-none-eabi/14.1.0/include-fixed/**",
+                "/usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/include/**"
+            ],
+            "forcedInclude": [],
+            "compilerPath": "/usr/bin/arm-none-eabi-g++",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "defines": [
+                "HAL_MODULE_ENABLED",
+                "STM32G0B1xx"
+            ]
+        }
+    ],
+    "version": 4
+}
