@@ -5,10 +5,11 @@
             "includePath": [
                 "./source/cmsis/core/**",
                 "./source/cmsis/device/**",
+                "./source/hal/**",
                 "./source/freertos/**",
-                "/usr/lib/gcc/arm-none-eabi/14.1.0/include/**",
-                "/usr/lib/gcc/arm-none-eabi/14.1.0/include-fixed/**",
-                "/usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/include/**"
+                "/usr/lib/gcc/arm-none-eabi/14.2.0/include/**",
+                "/usr/lib/gcc/arm-none-eabi/14.2.0/include-fixed/**",
+                "/usr/lib/gcc/arm-none-eabi/14.2.0/../../../../arm-none-eabi/include/**"
             ],
             "forcedInclude": [],
             "compilerPath": "/usr/bin/arm-none-eabi-g++",

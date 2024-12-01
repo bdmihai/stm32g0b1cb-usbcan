@@ -26,10 +26,34 @@
  |___________________________________________________________________________*/
 
 #include "stm32g0xx.h"
+#include "stm32g0xx_hal.h"
 #include "gpio.h"
+
+#define LED_RXD_Pin GPIO_PIN_0
+#define LED_RXD_GPIO_Port GPIOA
+#define LED_TXD_Pin GPIO_PIN_1
+#define LED_TXD_GPIO_Port GPIOA
+#define LED_RDY_Pin GPIO_PIN_2
+#define LED_RDY_GPIO_Port GPIOA
 
 void gpio_init()
 {
+    GPIO_InitTypeDef GPIO_InitStruct = {0};
+    
+    /* GPIO Ports Clock Enable */
+    __HAL_RCC_GPIOF_CLK_ENABLE();
+    __HAL_RCC_GPIOA_CLK_ENABLE();
+    __HAL_RCC_GPIOB_CLK_ENABLE();
+
+    /*Configure GPIO pin Output Level */
+    HAL_GPIO_WritePin(GPIOA, LED_RXD_Pin|LED_TXD_Pin|LED_RDY_Pin, GPIO_PIN_SET);
+
+    /*Configure GPIO pins : LED_RXD_Pin LED_TXD_Pin LED_RDY_Pin */
+    GPIO_InitStruct.Pin = LED_RXD_Pin|LED_TXD_Pin|LED_RDY_Pin;
+    GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 //    /* disable JTAG */
 //    MODIFY_REG(GPIOA->MODER,    GPIO_MODER_MODER15_Msk,     0);                         /* JTDI disabled */
 //    MODIFY_REG(GPIOB->MODER,    GPIO_MODER_MODER4_Msk,      0);                         /* NJTRST disabled */
@@ -44,10 +68,12 @@ void gpio_init()
 
 void gpio_set_led()
 {
+    HAL_GPIO_WritePin(GPIOA, LED_RDY_Pin, GPIO_PIN_RESET);
 //    GPIOC->BSRR = GPIO_BSRR_BR13;
 }
 
 void gpio_reset_led()
 {
+    HAL_GPIO_WritePin(GPIOA, LED_RDY_Pin, GPIO_PIN_SET);
 //    GPIOC->BSRR = GPIO_BSRR_BS13;
 }

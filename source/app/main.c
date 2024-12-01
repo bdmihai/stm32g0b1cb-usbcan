@@ -40,13 +40,13 @@ static void vTaskLED(void *pvParameters)
 
     for (;;) {
         gpio_reset_led();
-        vTaskDelay(1000 / portTICK_PERIOD_MS);
+        vTaskDelay(2000 / portTICK_PERIOD_MS);
 
         gpio_set_led();
         vTaskDelay(100 / portTICK_PERIOD_MS);
 
         gpio_reset_led();
-        vTaskDelay(100 / portTICK_PERIOD_MS);
+        vTaskDelay(500 / portTICK_PERIOD_MS);
 
         gpio_set_led();
         vTaskDelay(100 / portTICK_PERIOD_MS);

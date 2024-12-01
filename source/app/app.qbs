@@ -38,7 +38,8 @@ Product {
 
     files: [
         "*.h",
-        "*.c"
+        "*.c",
+        "*.cpp"
     ]
 
     Group {

@@ -28,8 +28,8 @@
 CONFIG_MCU                  = STM32G0B1CB
 CONFIG_OPENOCD              = /usr/local/bin/openocd
 CONFIG_OPENOCDCONFIGDIR     = /usr/local/share/openocd/scripts
-CONFIG_OPENOCD_INTERFACE    = interface/stlink-v3.cfg
-CONFIG_OPENOCD_BOARD		= board/stm32g0b1xx.cfg
+CONFIG_OPENOCD_INTERFACE    = interface/stlink.cfg
+CONFIG_OPENOCD_BOARD		= target/stm32g0x_hs.cfg
 
 .PHONY: all build clean
 
